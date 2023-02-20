@@ -50,7 +50,7 @@ const contactSlice = createSlice({
         filter: action.payload,
       }
     },
-
+//----------------------Додаємо обробку зовнішніх екшенів
     extraReducers: {
 
       [fetchContacts.pending](state) {
