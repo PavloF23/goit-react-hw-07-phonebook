@@ -1,25 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts, addContact, deleteContact } from 'services/servisApi';
 
-const initialState = {
-  contacts: {
-    items: [],
-    isLoading: false,
-    error: null
-  },
-  // contacts: [
-  //   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-  //   { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-  //   { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-  //   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-  // ],
-  filter: '',
-};
+// const initialState = {
+//   contacts: {
+//     items: [],
+//     isLoading: false,
+//     error: null
+//   },
+//   // contacts: [
+//   //   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+//   //   { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+//   //   { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+//   //   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+//   // ],
+//   filter: '',
+// };
 
 const contactSlice = createSlice({
   name: 'contacts',
-  initialState: initialState,
-  reducers: {
+  initialState: {
+      items: [],
+      isLoading: false,
+      error: null
+    },
+  // reducers: {
 
     // addContact(state, action) {
     //   if (
@@ -44,13 +48,13 @@ const contactSlice = createSlice({
     //   };
     // },
 
-    setFilter(state, action) {
-      return {
-        ...state,
-        filter: action.payload,
-      }
-    },
-  },
+    // setFilter(state, action) {
+    //   return {
+    //     ...state,
+    //     filter: action.payload,
+    //   }
+    // },
+  // },
 //----------------------Додаємо обробку зовнішніх екшенів
     extraReducers: {
 

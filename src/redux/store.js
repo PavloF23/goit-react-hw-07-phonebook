@@ -1,5 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {contactReducer} from './contactSlice';
+import { filterReducer } from './filterSlice';
 // import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage';
 
@@ -23,7 +24,10 @@ export const store = configureStore({
   //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
   //     },
   //   }),
-  reducer:contactReducer,
+  reducer: {
+    contacts: contactReducer,
+    filter: filterReducer,
+  },
 });
 
 // export const persistor = persistStore(store);
