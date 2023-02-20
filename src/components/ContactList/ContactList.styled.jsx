@@ -20,7 +20,9 @@ justify-content: space-between;
   }
 `;
 
-export const Contact = styled.p``;
+export const Contact = styled.p`
+font-size: 15px;
+`;
 
 export const Button = styled.button`
 width: 85px;

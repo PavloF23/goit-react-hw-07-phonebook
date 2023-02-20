@@ -4,7 +4,6 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Toaster } from 'react-hot-toast';
-// import { getContacts } from 'redux/selectors';
 import { getIsLoading, getError } from "redux/selectors";
 import { useSelector } from 'react-redux';
 import  Loader  from  '../components/Loader/Loader'
