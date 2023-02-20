@@ -14,7 +14,7 @@ import { fetchContacts } from 'services/servisApi';
 export function ContactList() {
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
-  // const filter = useSelector(getFilter);
+  const filter = useSelector(getFilter);
 
   // const filteredContacts = getFilteredContacts(contacts, filter);
 
@@ -22,13 +22,17 @@ export function ContactList() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  const getVisibleContacts = () => {
+    return contacts.filter(contact => contact.name.toLowerCase().includes(filter.trim().toLowerCase()))
+}
+
   return (
     <List>
         {contacts.length ? (
-        contacts.map( contact  => (
-          <Item key={contact.id} >
-            <Contact><AiFillPhone/> {contact.name}: {contact.number}</Contact>    
-            <Button type='button' onClick={() => dispatch(deleteContact(contact.id))}><AiTwotoneDelete/> Delete</Button>
+         getVisibleContacts().map(({ id, name, number }) => (
+          <Item key={id} >
+            <Contact><AiFillPhone/> {name}: {number}</Contact>    
+            <Button type='button' onClick={() => dispatch(deleteContact(id))}><AiTwotoneDelete/> Delete</Button>
           </Item>
           )) ) : (
             <p>Your phonebook is empty. Please add contact.</p>

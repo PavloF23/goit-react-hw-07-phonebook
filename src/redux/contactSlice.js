@@ -50,6 +50,7 @@ const contactSlice = createSlice({
         filter: action.payload,
       }
     },
+  },
 //----------------------Додаємо обробку зовнішніх екшенів
     extraReducers: {
 
@@ -97,8 +98,7 @@ const contactSlice = createSlice({
       [deleteContact.rejected](state, action) {
         return { ...state, isLoading: false, error: action.payload };
       },
-  },
-  }
+    },  
 });
 
 export const { setFilter } = contactSlice.actions;
