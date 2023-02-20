@@ -9,10 +9,6 @@ gap: 24px;
 align-items: center;
 `;
 
-// export const FormControl = styled.div`
-//   position: relative;
-// `;
-
 export const Label = styled.label`
 position: relative;
 display: block;

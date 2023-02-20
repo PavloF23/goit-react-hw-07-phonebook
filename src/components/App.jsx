@@ -4,11 +4,14 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Toaster } from 'react-hot-toast';
-import { getContacts } from 'redux/selectors';
+// import { getContacts } from 'redux/selectors';
+import { getIsLoading, getError } from "redux/selectors";
 import { useSelector } from 'react-redux';
+import  Loader  from  '../components/Loader/Loader'
 
 export function App() {
-  const contacts = useSelector(getContacts);
+  const isLoading = useSelector(getIsLoading);
+  const error = useSelector(getError);
 
   return (
     <AppStyle>
@@ -17,7 +20,8 @@ export function App() {
         <ContactForm/>   
         <Toaster position="top-center" reverseOrder={false}/>  
         <h2>Contacts</h2>
-        {contacts.length !== 0 && <Filter />}
+        <Filter/>
+        {isLoading && !error && <Loader/>}
         <ContactList/>      
       </Container>
     </AppStyle>

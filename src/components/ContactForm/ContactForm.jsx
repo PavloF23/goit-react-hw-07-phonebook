@@ -1,22 +1,35 @@
-import { useDispatch } from 'react-redux';
-import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
+// import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { FormContact, Label, Span, Input, Button, Error } from './ContactForm.styled';
-import { addContact } from 'redux/contactSlice';
+import { addContact } from 'services/servisApi';
 import toast from 'react-hot-toast';
+import { getContacts } from "redux/selectors";
 
 export function ContactForm() {
+  const contacts = useSelector(getContacts)
   const dispatch = useDispatch();
   const initialValues = {
     name: '',
     number: '',
   };
+
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
-      id: nanoid(),
+      // id: nanoid(),
       ...values,
     };
+    if (
+      contacts.find(
+        ({ name }) =>
+          name.toLowerCase() === newContact.name.trim().toLowerCase()
+      )
+    ) {
+      alert(`${newContact.name} is already in your contacts.`);
+      resetForm();
+      return;
+    }
     dispatch(addContact(newContact));
     resetForm();
   };
@@ -45,7 +58,6 @@ export function ContactForm() {
       onSubmit={handleSubmit}
     >
       <FormContact autoComplete="off">
-      {/* <FormControl> */}
         <Label>          
           <Input
             type="text"
@@ -55,8 +67,7 @@ export function ContactForm() {
           />
           <Span>Name</Span>
           {/* <Error component="div" name="name" /> */}
-        </Label>
-        
+        </Label>        
         <Label>       
           <Input       
             type="tel"
@@ -67,8 +78,6 @@ export function ContactForm() {
           <Span>Number</Span>
           <Error component="div" name="number" />
         </Label>
-        
-        {/* </FormControl> */}
         <Button type="submit">Add contact</Button>
       </FormContact>
       </Formik>
