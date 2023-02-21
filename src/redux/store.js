@@ -2,12 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 import { contactReducer } from './contactSlice';
 import { filterReducer } from './filterSlice';
 
+import logger from 'redux-logger';
+
+const middleware = [...getDefaultMiddleware(), logger];
+
 export const store = configureStore({
   reducer: {
-    [contactReducer.reducerPath]: contactReducer.reducer,
+    contact: contactReducer,
     filter: filterReducer,
-    },  
-    middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), contactReducer.middleware, ],
+    middleware,
+     devTools: process.env.NODE_ENV === 'development',
+    },    
+//     middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), contactReducer.middleware, ],
 //  devTools: process.env.NODE_ENV !== 'production',
-    devTools: process.env.NODE_ENV === 'development',
+//     devTools: process.env.NODE_ENV === 'development',
 });
