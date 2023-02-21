@@ -8,6 +8,6 @@ export const store = configureStore({
     contacts: contactReducer,
     filter: filterReducer,
     middleware: (getDefaultMiddleware) => [ ...getDefaultMiddleware(), contactsApi.middelware],
-  devTools: process.env.NODE_ENV !== 'production',
+//  devTools: process.env.NODE_ENV !== 'production',
   },
 });
