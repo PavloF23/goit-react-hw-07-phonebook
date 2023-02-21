@@ -13,8 +13,8 @@ import { filterReducer } from './filterSlice';
 
 export const store = configureStore({
   reducer: {
-//     contact: contactReducer,
-     [contactReducer.reducerPath]: contactReducer.reducer,
+    contact: contactReducer,
+//      [contactReducer.reducerPath]: contactReducer.reducer,
     filter: filterReducer,
 //     middleware,
 //      devTools: process.env.NODE_ENV === 'development',
@@ -27,7 +27,7 @@ export const store = configureStore({
 //     }),
 //   middleware,
 //     middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), contactReducer.middleware, ],
-   middleware: getDefaultMiddleware => [ ...getDefaultMiddleware()],
+//    middleware: getDefaultMiddleware => [ ...getDefaultMiddleware()],
 //  devTools: process.env.NODE_ENV !== 'production',
-    devTools: process.env.NODE_ENV === 'development',
+//     devTools: process.env.NODE_ENV === 'development',
 });
