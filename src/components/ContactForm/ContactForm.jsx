@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { nanoid } from 'nanoid';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { FormContact, Label, Span, Input, Button, Error } from './ContactForm.styled';
-import { addContact } from 'services/servisApi';
+import { addContact } from 'redux/operation';
 import toast from 'react-hot-toast';
 import { getContacts } from "redux/selectors";
 
