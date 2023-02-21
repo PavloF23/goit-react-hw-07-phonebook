@@ -10,10 +10,11 @@ export const store = configureStore({
   reducer: {
     contact: contactReducer,
     filter: filterReducer,
-    middleware,
-     devTools: process.env.NODE_ENV === 'development',
-    },    
+//     middleware,
+//      devTools: process.env.NODE_ENV === 'development',
+    },  
+  middleware,
 //     middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), contactReducer.middleware, ],
 //  devTools: process.env.NODE_ENV !== 'production',
-//     devTools: process.env.NODE_ENV === 'development',
+    devTools: process.env.NODE_ENV === 'development',
 });
