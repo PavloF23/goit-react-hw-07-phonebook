@@ -26,8 +26,8 @@ export const store = configureStore({
 //       },
 //     }),
 //   middleware,
-    middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), contactReducer.middleware, ],
-//    middleware: getDefaultMiddleware => [ ...getDefaultMiddleware()],
+//     middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), contactReducer.middleware, ],
+   middleware: getDefaultMiddleware => [ ...getDefaultMiddleware()],
 //  devTools: process.env.NODE_ENV !== 'production',
     devTools: process.env.NODE_ENV === 'development',
 });
