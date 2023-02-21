@@ -1,5 +1,5 @@
-import {configureStore} from '@reduxjs/toolkit';
-import {contactReducer} from './contactSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import { contactReducer } from './contactSlice';
 import { filterReducer } from './filterSlice';
 
 export const store = configureStore({
@@ -7,8 +7,7 @@ export const store = configureStore({
     [contactReducer.reducerPath]: contactReducer.reducer,
     filter: filterReducer,
     },  
-    middleware: (getDefaultMiddleware) => [ ...getDefaultMiddleware(), contactReducer.middleware],
+    middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), contactReducer.middleware, ],
 //  devTools: process.env.NODE_ENV !== 'production',
- devTools: process.env.NODE_ENV === 'development',
-
+    devTools: process.env.NODE_ENV === 'development',
 });
