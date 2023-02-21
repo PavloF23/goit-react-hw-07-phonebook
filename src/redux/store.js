@@ -14,7 +14,7 @@ import { filterReducer } from './filterSlice';
 export const store = configureStore({
   reducer: {
 //     contact: contactReducer,
-     [contactsReducer.reducerPath]: contactsReducer.reducer,
+     [contactReducer.reducerPath]: contactReducer.reducer,
     filter: filterReducer,
 //     middleware,
 //      devTools: process.env.NODE_ENV === 'development',
