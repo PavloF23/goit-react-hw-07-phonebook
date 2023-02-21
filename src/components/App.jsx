@@ -6,7 +6,7 @@ import { Filter } from './Filter/Filter';
 import { Toaster } from 'react-hot-toast';
 import { getIsLoading, getError } from "redux/selectors";
 import { useSelector } from 'react-redux';
-import  Loader  from  '../components/Loader/Loader'
+import  Loader  from  './Loader/Loader'
 
 export function App() {
   const isLoading = useSelector(getIsLoading);
