@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { List, Item, Contact, Button } from './ContactList.styled';
 import { AiFillPhone, AiTwotoneDelete } from "react-icons/ai";
-import { deleteContact } from 'services/servisApi';
+import { deleteContact,  fetchContacts } from 'redux/operation';
 import { getContacts, getFilter } from 'redux/selectors';
 import { useEffect } from "react";
-import { fetchContacts } from 'services/servisApi';
 
 export function ContactList() {
   const dispatch = useDispatch();
