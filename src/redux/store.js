@@ -5,9 +5,9 @@ import { filterReducer } from './filterSlice';
 export const store = configureStore({
 
   reducer: {
-    contacts: contactReducer,
+    [contactReducer, reducerPath]: contactReducer.reducer,
     filter: filterReducer,
-    middleware: (getDefaultMiddleware) => [ ...getDefaultMiddleware(),],
+    middleware: (getDefaultMiddleware) => [ ...getDefaultMiddleware(), contactReducer.middelware],
 //  devTools: process.env.NODE_ENV !== 'production',
  devTools: process.env.NODE_ENV === 'development',
   },
