@@ -16,7 +16,6 @@ export function ContactForm() {
 
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
-      // id: nanoid(),
       ...values,
     };
     if (
