@@ -20,8 +20,21 @@ justify-content: space-between;
   }
 `;
 
-export const Contact = styled.p`
+export const Box = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-end;
+margin-left: 20px;
+`;
+
+export const Img = styled.img`
+border-radius: 50%;
+`;
+
+export const Contact = styled.div`
 font-size: 15px;
+display: flax;
 `;
 
 export const Button = styled.button`

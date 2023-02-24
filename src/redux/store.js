@@ -8,4 +8,6 @@ export const store = configureStore({
     contacts: contactReducer,
     filter: filterReducer,
   },
+  middleware: getDefaultMiddleware => [ ...getDefaultMiddleware(), ],
+  devTools: process.env.NODE_ENV === 'development',
 });

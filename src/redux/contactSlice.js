@@ -9,7 +9,7 @@ const contactSlice = createSlice({
       error: null
     },
 
-    extraReducers: {
+    extraReducers:  {
 
       [fetchContacts.pending](state) {
         return { ...state, isLoading: true };
